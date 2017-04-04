@@ -32,6 +32,9 @@ RUN apt-get update \
 		&& apt-get clean \
 		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+COPY themes/mirantis/images /var/www/phpldapadmin_bootstrap/htdocs/images/mirantis
+COPY themes/mirantis/css /var/www/phpldapadmin_bootstrap/htdocs/css/mirantis
+
 # Add service directory to /container/service
 ADD service /container/service
 

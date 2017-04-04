@@ -131,6 +131,9 @@ if [ ! -e "/var/www/phpldapadmin/config/config.php" ]; then
 
     sed -i "/{{ PHPLDAPADMIN_SERVERS }}/d" ${CONTAINER_SERVICE_DIR}/phpldapadmin/assets/config.php
 
+    # Theme
+    echo "\$config->custom->appearance['theme'] = '${PHPLDAPADMIN_THEME:-default}';" >> ${CONTAINER_SERVICE_DIR}/phpldapadmin/assets/config.php
+
     touch $FIRST_START_DONE
   fi
 
